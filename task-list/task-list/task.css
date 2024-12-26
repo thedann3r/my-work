@@ -1,0 +1,30 @@
+#listing{
+    background-color: aqua;
+    width: 320px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-left: 30%;
+    margin-top: 5px;
+    align-items: center;
+    padding: 8px;
+}
+button{
+    background-color: blue;
+    color: white;
+    width: 70px;
+    border-radius: 7px;
+    height: 23px;
+    border: 2px solid black;
+}
+#players{
+    border-radius: 7px;
+    border: 2px solid black;
+    padding: 3px;
+}
+#quiz{
+    align-items: center;
+}
+#squad{
+    margin-left: 30%;
+    margin-top: 20px;
+}

@@ -1,0 +1,1 @@
+prod = lambda a,b : a * b

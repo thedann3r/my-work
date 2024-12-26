@@ -1,0 +1,60 @@
+{
+  "Marvel": [
+    {
+      "Title": "Iron-Man 1",
+      "id": "1",
+      "Image": "https://thecredhulk.wordpress.com/wp-content/uploads/2013/05/iron-man-2008.jpeg",
+      "Starring": "Robert Downey Junior",
+      "Release": 2008
+    },
+    {
+      "Title": "The Incredible Hulk",
+      "id": "2",
+      "Image": "https://i.ytimg.com/vi/kkAMgiT0jV0/maxresdefault.jpg",
+      "Starring": "Edward Norton",
+      "Release": 2008
+    },
+    {
+      "Title": "Iron-man 2",
+      "id": "3",
+      "Image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTtGS-r2bkG1Q6lHqoxqgjZbf_oH1h_KOsClLzPCyoaa8KOWKH0",
+      "Starring": "Robert Downey Junior",
+      "Release": 2010
+    },
+    {
+      "Title": "Thor-2011",
+      "id": "4",
+      "Image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT3P9ooaIIaKhj8o7ktzPKdxIV26zIjlULfFqlhMfOFCP_AmIvAqvFL_xSCDCy8xaDAWrUaMg",
+      "Starring": "Chris Hemsworth",
+      "Release": 2011
+    },
+    {
+      "Title": "Captain America: The First Avenger",
+      "id": "5",
+      "Image": "https://m.media-amazon.com/images/I/81L3vlHXvhL._AC_UF1000,1000_QL80_.jpg",
+      "Starring": "Chris Evans",
+      "Release": 2011
+    },
+    {
+      "Title": "The Avengers-2012",
+      "id": "6",
+      "Image": "https://posterspy.com/wp-content/uploads/2022/06/avengers-genzo-1280.jpg",
+      "Starring": "Robert Downey Junior",
+      "Release": 2012
+    },
+    {
+      "id": "7",
+      "Title": "Iron-Man 3",
+      "Image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR_FrS2hYbP-VeStteLDNA7YfEl0fuF3tdrDNSDo6V5g6_bUFHAdzfnN5qMDEk3AxREdTmQ",
+      "Starring": "Robert Downey Junior",
+      "Release": "2013"
+    },
+    {
+      "id": "8",
+      "Title": "Thor: The Dark world",
+      "Image": "https://m.media-amazon.com/images/I/61gYu5GiRlL.jpg",
+      "Starring": "Chris Hemsworth",
+      "Release": "2013"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+body{
+    background-image: url(https://c4.wallpaperflare.com/wallpaper/377/745/290/marvel-comics-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+#mainHead{
+    color: black;
+    text-decoration: underline;
+    filter: drop-shadow(30px);
+}
+#create{
+    margin: 5px;
+    width: 110px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    border: 2px white solid;
+    font-weight: bolder;  
+    transition: transform 0.3s;
+}
+#create:hover{
+    transform: scale(1.1);
+}
+#image{
+    width: 400px;
+    height: 300px;
+    transition: transform 0.3s 
+}
+#image:hover{
+    transform: scale(1.1);
+}
+#marvel-movies{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 20px;
+    gap: 20px;
+}
+.movies{
+    border: 5px solid rgb(65, 61, 61);
+    width: 450px;
+    border-radius: 10px;
+    padding: 8px;
+    color: white;
+    background-color:rgb(0 0 0 / 85%);
+}
+.new{
+    width: 200px;
+    height: 20px;
+    margin-right: 9px;
+    background-color: rgb(53, 49, 49);
+    color: white;
+    border-radius: 8px;
+    border: 2px black solid;
+}
+.editing{
+    width: 200px;
+    height: 20px;
+    margin-bottom: 2px;
+    background-color: rgb(53, 49, 49);
+    color: white;
+    border-radius: 8px;
+    border: 2px black solid;
+}
+#ed{
+    margin: 5px;
+    width: 110px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    border: 2px white solid;
+    font-weight: bolder;
+    transition: transform 0.3s;
+}
+#ed:hover{
+    transform: scale(1.1);
+}
+#butt{
+    margin: 5px;
+    width: 110px;
+    height: 30px;
+    background-color: black;
+    color: red;
+    border-radius: 8px;
+    border: 2px red solid;
+    font-weight: bolder;
+    transition: transform 0.3s;
+}
+#butt:hover{
+    transform: scale(1.1);
+}
+#commentForm{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+.comment{
+    width: 190px;
+    height: 45px;
+    margin-bottom: 5px;
+    background-color: rgb(53, 49, 49);
+    color: white;
+    border-radius: 8px;
+    border: 2px black solid;
+}
+.butt{
+    margin: 5px;
+    width: 60px;
+    height: 30px;
+    background-color: rgb(53, 49, 49);
+    color: black;
+    border-radius: 8px;
+    border: 2px white solid;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+.butt:hover{
+    transform: scale(1.1);
+}
+.commented{
+    background-color: aquamarine;
+    color: black;
+    border-radius: 5px;
+    width: 150px;
+    height: fit-content;
+    margin-left: 32%;
+    padding: 5px;
+    font-weight: bold;
+}
+.del{
+    margin: 5px;
+    width: 30px;
+    height: 23px;
+    background-color: black;
+    color: red;
+    border-radius: 8px;
+    border: 2px red solid;
+    font-weight: bolder;
+}
