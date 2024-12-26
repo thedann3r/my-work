@@ -6,9 +6,11 @@
 # for i in range(1,100,1):
 #     print(i)
 
-marks = [12,13,15,19,90]
+marks = [12,13,15,19,21]
 
 perc = list()
 
 for mark in marks:
-    (mark*100) / 100
+    total = (mark*100) / 30
+    perc.append(total)
+print(min(perc))
