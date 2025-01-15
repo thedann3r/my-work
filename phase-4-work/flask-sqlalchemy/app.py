@@ -13,7 +13,7 @@ class Student(db.Model):
     __tablename__ = "students"
 
     id = db.Column(db.Integer,primary_key=True)
-    Name = db.Column(db.String(100),nullable=False)
+    name = db.Column(db.String(100),nullable=False)
     age = db.Column(db.Integer,nullable=False)
     teacher = db.Column(db.String(20),nullable=False)
 
