@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from sqlalchemy_serializer import SerializerMixin
@@ -27,10 +27,65 @@ class River(db.Model, SerializerMixin):
 def home():
     return '<h1>Welcome to the lengths of Rivers!</h1>'
 
-@app.route('/rivers')
+    #GET method
+
+@app.route('/rivers', methods=['GET'])
 def get_river():
     rivers = River.query.all()
-    return jsonify([rive.to_dict() for rive in rivers])
+    return jsonify([river.to_dict() for river in rivers])
+
+@app.route('/rivers/<int:id>', methods=['GET'])
+def get_one(id):
+    river = River.query.get(id)
+    if not river:
+        return jsonify({"message" : "River does not exist!"}), 404
+    return jsonify(river.to_dict()), 200
+
+    #POST method
+
+@app.route('/rivers', methods=['POST'])
+def get_new():
+    data = request.get_json()
+    if not data or not all(key in data for key in ("name", "source", "length_in_km")):
+        return jsonify({"error" : "missing required field(s)!"}), 400
+    new_river = River(
+        **data
+        # name = data['name'],
+        # source = data['source'],
+        # length_in_km = data['length_in_km']
+    )
+    db.session.add(new_river)
+    db.session.commit()
+    return jsonify(new_river.to_dict()), 201
+
+    #PATCH/PUT method
+
+@app.route('/rivers/<int: id>', methods=['PUT','PATCH'])
+def update_one(id):
+    data = request.get_json()
+    river = River.query.get(id)
+
+    if not river:
+        return jsonify({"error" : "River does not exist!"}), 404
+    if 'name' in data:
+        river.name = data['name']
+    if 'source' in data:
+        river.source = data['source']
+    if 'length_in_km' in data:
+        river.length_in_km = data['length_in_km']
+    db.session.commit()
+    return jsonify(river.to_dict()), 200
+
+    #DELETE
+
+@app.route('/rivers/<int:id>', methods=['DELETE'])
+def delete_one(id):
+    river = River.query.get(id)
+    if not river:
+        return jsonify({"error" : "River does not exist!"}), 404
+    db.session.delete(river)
+    db.session.commit()
+    return jsonify({"Message" : "River deleted successfully!"}), 200
 
 if __name__ == '__main__':
     app.run(debug= True)
