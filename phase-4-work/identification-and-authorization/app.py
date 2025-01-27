@@ -4,11 +4,69 @@ from flask_migrate import Migrate
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_session import Session
-from flask_restful import Ap,Resource
+from flask_restful import Api,Resource
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] =
+app.config['SECRET_KEY'] = 
+app.config['SESSION_TYPE'] = 'filesystem'
+
 CORS(app, supports_credentials=True)
 bcrypt = Bcrypt(app) 
+Session(app)
+api = Api(app)
+db = SQLAlchemy(app)
+migrate = Migrate(app,db)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String, nullable = False, unique = True)
+    password = db.Column(db.Integer, nullable = False)
+
+class Signup(Resource):
+    def post(self):
+        data = request.get_json()
+        username = data.get('username')
+        password = data.get('password')
+
+        if User.query.filter_by(username=username).first():
+            return {'error' : 'Username already exists!'}, 400
+        hash = bcrypt.generate_password_hash(password).decode('utf-8')
+        new_user = User(username=username, password=hash)
+        db.session.add(new_user)
+        db.session.commit()
+        return {'message' : 'User created successfully!'}, 201
+
+class Login(Resource):
+    def post(self):
+        data = request.get_json()
+        username = data.get('username')
+        password = data.get('password')
+
+        user = User.query.filter_by(username=username).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            session['user_id'] = user.id
+            return {'message' : 'User logged in successfully!'}, 200
+        return {'error' : 'Invalid username or password! Please try again'},401
+
+class Logout(Resource):
+    def post(self):
+        session.pop('user_id', None)
+        return {'message' : 'User logged out successfully'}, 200
+
+class IsLoggedIn(Resource):
+    def get(self):
+        user_id = session.get('user_id')
+        if user_id:
+            user = User.query.get(user_id)
+            return {'username' : user.username}, 200
+        return {'error' : 'The user is not yet logged in!'}, 401
+
+api.add_resource(Signup, '/signup')
+api.add_resource(Login, '/login')
+api.add_resource(Logout, '/logout')
+api.add_resource(IsLoggedIn, '/isloggedin')
+
+if __name__ == '__main__':
+    app.run(debug=True)
