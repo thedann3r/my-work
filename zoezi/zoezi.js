@@ -4,9 +4,13 @@
 // console.log(add(2,3,4))
 
 // const names = ["Dann","Christopher","Dorothy","Stephen"]
-// names.forEach((students) => {
-//     console.log(students)
+// names.forEach(jina =>{
+//     console.log(jina)
 // })
+
+// for(let name of names){
+//     console.log(name)
+// }
 
 // const names = ["Dann","Christopher","Dorothy","Stephen"]
 // let startsD = names.filter((students) => {
@@ -27,4 +31,10 @@
 //     return accumumulator * num
 // },1)
 // console.log(product)
+
+// let nums = [1,2,3,6,5]
+// let num = nums.map(number => number * 2)
+// let numb = num.filter(numbe => numbe >= 5)
+// console.log(numb)
+
 
