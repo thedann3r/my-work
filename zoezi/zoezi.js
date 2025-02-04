@@ -37,4 +37,24 @@
 // let numb = num.filter(numbe => numbe >= 5)
 // console.log(numb)
 
+// let i = 0
+// while(i <= 10){
+//     console.log(i)
+//     i++
+// }
+
+// for(let i = 0; i <= 10; i++){
+//     console.log(i)
+// }
+
+// let age = 1
+// let result = age >=18 ? "You are an adult!" : "You are still a child!"
+
+// console.log(result)
+
+// let number = 7
+// let result = number % 2 === 0 ? "An even number" : "An odd number"
+
+// console.log(result)
+
 
