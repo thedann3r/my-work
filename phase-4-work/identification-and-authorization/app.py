@@ -7,6 +7,7 @@ from flask_session import Session
 from flask_restful import Api,Resource
 import os
 from dotenv import load_dotenv
+import re
 
 load_dotenv()
 
@@ -34,10 +35,12 @@ class Signup(Resource):
         username = data.get('username')
         password = data.get('password')
 
-        if len(username) < 7:
-            return {'error': 'Username must contain at least 7 characters!'}, 400
-        if not username.isalnum():
-            return {'error' : 'Username must contaion alphanumerical characters!'}, 400
+        if len(username) < 7 or len(username) > 20:
+            return {'error': 'Username must contain between 7 and 20 characters!'}, 400
+        if not re.search(r'[a-Za-z]', username):
+            return {'error' : 'Username must contain at least 1 letter!'}, 400
+        if not re.search(r'[0-9]', username):
+            return {'error' : 'Username must contain atleast 1 number!'}, 400
 
         if User.query.filter_by(username=username).first():
             return {'error' : 'Username already exists!'}, 400
