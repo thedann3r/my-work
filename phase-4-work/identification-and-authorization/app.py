@@ -36,8 +36,8 @@ class Signup(Resource):
         password = data.get('password')
 
         if len(username) < 7 or len(username) > 20:
-            return {'error': 'Username must contain between 7 and 20 characters!'}, 400
-        if not re.search(r'[a-Za-z]', username):
+            return {'error': 'Username must be between 7 and 20 characters!'}, 400
+        if not re.search(r'[a-zA-Z]', username):
             return {'error' : 'Username must contain at least 1 letter!'}, 400
         if not re.search(r'[0-9]', username):
             return {'error' : 'Username must contain atleast 1 number!'}, 400
