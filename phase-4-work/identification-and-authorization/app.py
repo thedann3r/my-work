@@ -34,6 +34,11 @@ class Signup(Resource):
         username = data.get('username')
         password = data.get('password')
 
+        if len(username) < 7:
+            return {'error': 'Username must contain at least 7 characters!'}, 400
+        if not username.isalnum():
+            return {'error' : 'Username must contaion alphanumerical characters!'}, 400
+
         if User.query.filter_by(username=username).first():
             return {'error' : 'Username already exists!'}, 400
         hash = bcrypt.generate_password_hash(password).decode('utf-8')
