@@ -5,11 +5,15 @@ from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_session import Session
 from flask_restful import Api,Resource
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'default_secret_key')
 app.config['SESSION_TYPE'] = 'filesystem'
 
 CORS(app, supports_credentials=True)

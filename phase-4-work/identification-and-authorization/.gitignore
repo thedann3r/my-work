@@ -1,0 +1,11 @@
+# Ignore .env file which contains sensitive information
+.env
+
+# Ignore Python bytecode files
+*.pyc
+
+# Ignore SQLite database files
+*.db
+
+# Ignore virtual environment directories (if you use a virtualenv)
+venv/
