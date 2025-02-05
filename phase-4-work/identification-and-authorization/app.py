@@ -53,12 +53,7 @@ class Login(Resource):
             session['user_id'] = user.id
             return {'message' : 'User logged in successfully!'}, 200
         return {'error' : 'Invalid username or password! Please try again'},401
-
-class Logout(Resource):
-    def post(self):
-        session.pop('user_id', None)
-        return {'message' : 'User logged out successfully'}, 200
-
+    
 class IsLoggedIn(Resource):
     def get(self):
         user_id = session.get('user_id')
@@ -67,10 +62,30 @@ class IsLoggedIn(Resource):
             return {'username' : user.username}, 200
         return {'error' : 'The user is not yet logged in!'}, 401
 
+class Logout(Resource):
+    def post(self):
+        session.pop('user_id', None)
+        return {'message' : 'User logged out successfully'}, 200
+    
+class DeleteUser(Resource):
+    def delete(self):
+        user_id = session.get('user_id')
+        if not user_id:
+            return {'error' : 'The user is not yet logged in!'},401
+        user = User.query.get(user_id)
+        if not user:
+            return {'error' : 'User not found!'}, 404
+        db.session.delete(user)
+        db.session.commit()
+        session.pop("user_id", None)
+        return {'message' : 'User deleted successfully!'},200
+
+
 api.add_resource(Signup, '/signup')
 api.add_resource(Login, '/login')
+api.add_resource(IsLoggedIn, '/loggedin')
 api.add_resource(Logout, '/logout')
-api.add_resource(IsLoggedIn, '/isloggedin')
+api.add_resource(DeleteUser, '/deleteuser')
 
 if __name__ == '__main__':
     app.run(debug=True)
