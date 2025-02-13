@@ -58,3 +58,14 @@
 // console.log(result)
 
 
+function alphaToDigit(A){
+    let result = []
+    for(alpha of A){
+        if (alpha.alpha()){
+            result.append(ord(alpha.toLowerCase()) - ord('a') + 1)
+        }
+    }
+    return result
+}
+A = 'Hello world'
+console.log(alphaToDigit(A))
