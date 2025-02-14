@@ -10,15 +10,15 @@
 # print(d)
 # print(names)
 
-def alphaToDigit(A):
-    result = []
-    for alpha in A:
-        if alpha.isalpha():
-            alp = ord(alpha.lower()) - ord('a') + 1
+# converting letters to digits
 
-            result.append(str(alp))
+# def alphaToDigit(A):
+#     result = []
+#     for alpha in A:
+#         if alpha.isalpha():
+#             alp = ord(alpha.lower()) - ord('a') + 1
 
-    return ' '.join(result)
+#             result.append(str(alp))
 
-# A = 'Hello world'
-print(alphaToDigit('Hello world'))
+#     return ' '.join(result)
+# print(alphaToDigit('Hello world'))

@@ -57,15 +57,48 @@
 
 // console.log(result)
 
+//Convert digit into Roman numeros
 
-function alphaToDigit(A){
-    let result = []
-    for(alpha of A){
-        if (alpha.alpha()){
-            result.append(ord(alpha.toLowerCase()) - ord('a') + 1)
-        }
+function romans(R){
+    let romanNumero = {1:'I',5:'V',10:'X',50:'L',100:'C',500:'D',1000:'M',}
+    let result = ''
+
+    if(R >= 1000){
+        let count = Math.floor(R / 1000)
+        result += romanNumero[1000].repeat(count)
+        R -= count * 1000
     }
+    if(R >= 500){
+        let count = Math.floor(R / 500)
+        result += romanNumero[500].repeat(count)
+        R -= count * 500
+    }
+    if(R >= 100){
+        let count  = Math.floor(R / 100)
+        result += romanNumero[100].repeat(count)
+        R -= count * 100
+    }
+    if(R >= 50){
+        let count  = Math.floor(R / 50)
+        result += romanNumero[50].repeat(count)
+        R -= count * 50
+    }
+    if(R >= 10){
+        let count  = Math.floor(R / 10)
+        result += romanNumero[10].repeat(count)
+        R -= count * 10
+    }
+    if(R >= 5){
+        let count  = Math.floor(R / 5)
+        result += romanNumero[5].repeat(count)
+        R -= count * 5
+    }
+    if(R >= 1){
+        let count  = Math.floor(R / 1)
+        result += romanNumero[1].repeat(count)
+        R -= count * 1
+    }
+
     return result
 }
-A = 'Hello world'
-console.log(alphaToDigit(A))
+console.log(romans(4321))
