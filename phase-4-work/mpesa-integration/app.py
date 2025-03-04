@@ -1,15 +1,19 @@
+import os
 import json
-import requests
 import base64
 import datetime
+import requests
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify
+
+load_dotenv()
 
 app = Flask(__name__)
 
-consumer_key = "qg19piAQmIwFGPetosfcIQwgqJRcA6USojWa9yafnExZptQR"
-consumer_secret = "1AwL7JGiYDXv2SUyJhuGKzpE77mlY5R4ElzoAJtHhIPZy6U5gR9rg9zZAEdf1iGL"
-shortcode = "174379"
-passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
+consumer_key = os.getenv('CONSUMER_KEY')
+consumer_secret = os.getenv('CONSUMER_SECRET')
+shortcode = os.getenv('SHORTCODE')
+passkey = os.getenv('PASSKEY')
 callback_url = "https://0e87-197-248-19-111.ngrok-free.app/mpesa/callback"
 
 @app.route('/mpesa/pay', methods = ['POST'])
