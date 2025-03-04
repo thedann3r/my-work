@@ -10,9 +10,11 @@ function RiversList({rivers, setRivers}){
              name = {river.name}
              source = {river.source}
              length_in_km = {river.length_in_km}
+             rivers = {rivers}
+             setRivers = {setRivers}
             />
            ))}    
-        </div>
+        </div> 
     )
 }
 

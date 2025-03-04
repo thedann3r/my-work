@@ -60,7 +60,7 @@ def get_new():
 
     #PATCH/PUT method
 
-@app.route('/rivers/<int: id>', methods=['PUT','PATCH'])
+@app.route('/rivers/<int:id>', methods=['PUT','PATCH'])
 def update_one(id):
     data = request.get_json()
     river = River.query.get(id)

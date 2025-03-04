@@ -40,3 +40,14 @@
 .read-the-docs {
   color: #888;
 }
+
+.river-items{
+  background-color: blue;
+  width: 400px;
+  height: auto;
+  border: 5px solid rgb(14, 171, 233);
+  border-radius: 10px;
+  margin-left: 10%;
+  margin-bottom: 15px;
+  padding: 7px;
+}

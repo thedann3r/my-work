@@ -13,3 +13,4 @@ with app.app_context():
             db.session.add(River(**river))
             db.session.commit()
             print("Seeding complete!")
+    

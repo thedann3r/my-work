@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 from flask_restful import Api
 from models import db
 from resources.rivers import RiverListResource, RiverResource
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rivers.db'
@@ -13,6 +14,7 @@ migrate = Migrate(app,db)
 
 api = Api(app)
 
+CORS(app)
 
 api.add_resource(RiverListResource, '/rivers')
 api.add_resource(RiverResource, '/rivers/<int:id>')

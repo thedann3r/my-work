@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-// import RiversList from './RiversList'
-// import NewRiver from './NewRiver'
 import LoginForm from './New'
 
 function App() {
